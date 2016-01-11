@@ -121,6 +121,14 @@ filled <- data %>% inner_join(int_steps) %>%
 filled_day <- filled %>%
   group_by(date) %>% summarize(dailysteps = sum(steps))
 
+#create histogram of daily total steps
+hist(filled_day$dailysteps,main = "Histogram of Daily Steps",
+     xlab="Daily Number of Steps")
+```
+
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+
+```r
 #calculate mean and median of filled data
 mean_fsteps <- format(round(mean(filled_day$dailysteps),2),scientific=FALSE)
 med_fsteps <- format(round(median(filled_day$dailysteps),2),scientific=FALSE)
